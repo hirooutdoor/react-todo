@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { InputTodo } from "./components/InputTodo";
+import { InProgressTodo } from "./components/InProgressTodo";
 import "./styles.css";
 
 export const App = () => {
@@ -47,20 +48,11 @@ export const App = () => {
         onChange={handleChange}
         onClick={handleAdd}
       />
-      <div class="inProgress-area">
-        <p class="title">In Progress</p>
-        <ul>
-          {inProgressTodo.map((todo, index) => {
-            return (
-              <div key={index} class="list-row">
-                <li>{todo}</li>
-                <button onClick={() => handleComplete(index)}>Done</button>
-                <button onClick={() => handleDelete(index)}>Delete</button>
-              </div>
-            );
-          })}
-        </ul>
-      </div>
+      <InProgressTodo
+        todo={inProgressTodo}
+        handleComplete={handleComplete}
+        handleDelete={handleDelete}
+      />
       <div class="complete-area">
         <p class="title">Complete</p>
         <ul>
