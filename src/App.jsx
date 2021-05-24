@@ -15,6 +15,12 @@ export const App = () => {
     setTodoText("");
   };
 
+  const handleDelete = (index) => {
+    const newTodo = [...inProgressTodo];
+    newTodo.splice(index, 1);
+    setInprogressTodo(newTodo);
+  };
+
   return (
     <>
       <div class="input-area">
@@ -34,7 +40,7 @@ export const App = () => {
               <div key={index} class="list-row">
                 <li>{todo}</li>
                 <button>Done</button>
-                <button>Delete</button>
+                <button onClick={() => handleDelete(index)}>Delete</button>
               </div>
             );
           })}
@@ -43,9 +49,9 @@ export const App = () => {
       <div class="complete-area">
         <p class="title">Complete</p>
         <ul>
-          {completeTodo.map((todo) => {
+          {completeTodo.map((todo, index) => {
             return (
-              <div key={todo} class="list-row">
+              <div key={index} class="list-row">
                 <li>{todo}</li>
                 <button>Back</button>
               </div>
