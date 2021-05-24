@@ -9,6 +9,7 @@ export const App = () => {
   const handleChange = (event) => setTodoText(event.target.value);
 
   const handleClick = () => {
+    if (todoText === "") return; //To prevent adding empty text
     const newTodo = [...inProgressTodo, todoText];
     setInprogressTodo(newTodo);
     setTodoText("");
