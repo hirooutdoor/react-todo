@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { InputTodo } from "./components/InputTodo";
 import "./styles.css";
 
 export const App = () => {
@@ -41,15 +42,11 @@ export const App = () => {
 
   return (
     <>
-      <div class="input-area">
-        <input
-          type="text"
-          placeholder="Input TODO here"
-          value={todoText}
-          onChange={handleChange}
-        />
-        <button onClick={handleAdd}>Add</button>
-      </div>
+      <InputTodo
+        todoText={todoText}
+        onChange={handleChange}
+        onClick={handleAdd}
+      />
       <div class="inProgress-area">
         <p class="title">In Progress</p>
         <ul>
