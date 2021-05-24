@@ -30,6 +30,15 @@ export const App = () => {
     setCompleteTodo(newCompleteTodo);
   };
 
+  const handleBack = (index) => {
+    const newCompleteTodo = [...completeTodo];
+    newCompleteTodo.splice(index, 1);
+    setCompleteTodo(newCompleteTodo);
+
+    const newInProgressTodo = [...inProgressTodo, completeTodo[index]];
+    setInprogressTodo(newInProgressTodo);
+  };
+
   return (
     <>
       <div class="input-area">
@@ -62,7 +71,7 @@ export const App = () => {
             return (
               <div key={index} class="list-row">
                 <li>{todo}</li>
-                <button>Back</button>
+                <button onClick={() => handleBack(index)}>Back</button>
               </div>
             );
           })}
