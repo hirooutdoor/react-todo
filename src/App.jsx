@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import "./styles.css";
 
 export const App = () => {
@@ -7,6 +7,12 @@ export const App = () => {
   const [completeTodo, setCompleteTodo] = useState(["TODO3"]);
 
   const handleChange = (event) => setTodoText(event.target.value);
+
+  const handleClick = () => {
+    const newTodo = [...inProgressTodo, todoText];
+    setInprogressTodo(newTodo);
+    setTodoText("");
+  };
 
   return (
     <>
@@ -17,14 +23,14 @@ export const App = () => {
           value={todoText}
           onChange={handleChange}
         />
-        <button>Add</button>
+        <button onClick={handleClick}>Add</button>
       </div>
       <div class="inProgress-area">
         <p class="title">In Progress</p>
         <ul>
-          {inProgressTodo.map((todo) => {
+          {inProgressTodo.map((todo, index) => {
             return (
-              <div key={todo} class="list-row">
+              <div key={index} class="list-row">
                 <li>{todo}</li>
                 <button>Done</button>
                 <button>Delete</button>
