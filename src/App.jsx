@@ -3,8 +3,8 @@ import "./styles.css";
 
 export const App = () => {
   const [todoText, setTodoText] = useState("");
-  const [inProgressTodo, setInprogressTodo] = useState(["TODO1", "TODO2"]);
-  const [completeTodo, setCompleteTodo] = useState(["TODO3"]);
+  const [inProgressTodo, setInprogressTodo] = useState([]);
+  const [completeTodo, setCompleteTodo] = useState([]);
 
   const handleChange = (event) => setTodoText(event.target.value);
 
