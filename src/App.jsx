@@ -17,8 +17,17 @@ export const App = () => {
 
   const handleDelete = (index) => {
     const newTodo = [...inProgressTodo];
-    newTodo.splice(index, 1);
+    newTodo.splice(index, 1); //1番目の引数はindex, 2番目の引数には指定したindexの要素をいくつ削除するか指定
     setInprogressTodo(newTodo);
+  };
+
+  const handleComplete = (index) => {
+    const newInProgressTodo = [...inProgressTodo];
+    newInProgressTodo.splice(index, 1);
+    setInprogressTodo(newInProgressTodo);
+
+    const newCompleteTodo = [...completeTodo, inProgressTodo[index]];
+    setCompleteTodo(newCompleteTodo);
   };
 
   return (
@@ -39,7 +48,7 @@ export const App = () => {
             return (
               <div key={index} class="list-row">
                 <li>{todo}</li>
-                <button>Done</button>
+                <button onClick={() => handleComplete(index)}>Done</button>
                 <button onClick={() => handleDelete(index)}>Delete</button>
               </div>
             );
