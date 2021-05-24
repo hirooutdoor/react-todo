@@ -8,7 +8,7 @@ export const App = () => {
 
   const handleChange = (event) => setTodoText(event.target.value);
 
-  const handleClick = () => {
+  const handleAdd = () => {
     if (todoText === "") return; //To prevent adding empty text
     const newTodo = [...inProgressTodo, todoText];
     setInprogressTodo(newTodo);
@@ -24,7 +24,7 @@ export const App = () => {
           value={todoText}
           onChange={handleChange}
         />
-        <button onClick={handleClick}>Add</button>
+        <button onClick={handleAdd}>Add</button>
       </div>
       <div class="inProgress-area">
         <p class="title">In Progress</p>
