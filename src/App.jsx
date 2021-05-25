@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { InputTodo } from "./components/InputTodo";
 import { InProgressTodo } from "./components/InProgressTodo";
+import { CompleteTodo } from "./components/CompleteTodo";
 import "./styles.css";
 
 export const App = () => {
@@ -53,19 +54,7 @@ export const App = () => {
         handleComplete={handleComplete}
         handleDelete={handleDelete}
       />
-      <div class="complete-area">
-        <p class="title">Complete</p>
-        <ul>
-          {completeTodo.map((todo, index) => {
-            return (
-              <div key={index} class="list-row">
-                <li>{todo}</li>
-                <button onClick={() => handleBack(index)}>Back</button>
-              </div>
-            );
-          })}
-        </ul>
-      </div>
+      <CompleteTodo todo={completeTodo} handleBack={handleBack} />
     </>
   );
 };
