@@ -48,7 +48,14 @@ export const App = () => {
         todoText={todoText}
         onChange={handleChange}
         onClick={handleAdd}
+        disabled={inProgressTodo.length >= 5}
       />
+      {inProgressTodo.length >= 5 && (
+        <p style={{ color: "red" }}>
+          You can only keep 5 Todos as In Progress, please complete or delete it
+          at first.
+        </p>
+      )}
       <InProgressTodo
         todo={inProgressTodo}
         handleComplete={handleComplete}

@@ -1,5 +1,6 @@
 import React from "react";
 
+//just so you know, you can write css in JS like so
 const style = {
   backgroundColor: "#c1ffff",
   width: "400px",
@@ -10,7 +11,7 @@ const style = {
 };
 
 export const InputTodo = (props) => {
-  const { todoText, onChange, onClick } = props;
+  const { todoText, onChange, onClick, disabled } = props;
 
   return (
     <>
@@ -20,6 +21,7 @@ export const InputTodo = (props) => {
           placeholder="Input TODO here"
           value={todoText}
           onChange={onChange}
+          disabled={disabled}
         />
         <button onClick={onClick}>Add</button>
       </div>
