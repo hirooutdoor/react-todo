@@ -4,12 +4,12 @@ export const InProgressTodo = (props) => {
   const { todo, handleComplete, handleDelete } = props;
   return (
     <>
-      <div class="inProgress-area">
-        <p class="title">In Progress</p>
+      <div className="inProgress-area">
+        <p className="title">In Progress</p>
         <ul>
           {todo.map((todo, index) => {
             return (
-              <div key={index} class="list-row">
+              <div key={index} className="list-row">
                 <li>{todo}</li>
                 <button onClick={() => handleComplete(index)}>Done</button>
                 <button onClick={() => handleDelete(index)}>Delete</button>

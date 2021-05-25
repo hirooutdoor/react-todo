@@ -4,12 +4,12 @@ export const CompleteTodo = (props) => {
   const { todo, handleBack } = props;
 
   return (
-    <div class="complete-area">
-      <p class="title">Complete</p>
+    <div className="complete-area">
+      <p className="title">Complete</p>
       <ul>
         {todo.map((todo, index) => {
           return (
-            <div key={index} class="list-row">
+            <div key={index} className="list-row">
               <li>{todo}</li>
               <button onClick={() => handleBack(index)}>Back</button>
             </div>
